@@ -23,7 +23,7 @@
 //********************************************************************************************************************************
 
 // VARIABLES
-	var topics = ["Battlestar Galactica", "Star Trek", "Dr. Who", "Babylon 5", "Guardians of the Galaxy", "Farscape", "Stargate", "Tron"];
+	var topics = ["Battlestar Galactica", "The Incredibles", "Star Trek", "Dr. Who", "Babylon 5", "Guardians of the Galaxy", "Farscape", "Stargate", "Tron"];
 
 
 //**************************************************************************************************************************************************
@@ -32,7 +32,9 @@
 // FUNCTIONS
 
 	// Check to see if onclick is working with data-name with each button... so far it is.
-	// I don't understand why this worked and the other ones below did not, but I'll go with this. Throwing speghetti sometimes works... for now
+	// THIRD OR FOURTH ATTEMPT VBUT FINALLY GOT SOMETHING TO SHOW UP
+		// I don't understand why this worked and the other ones below did not, but I'll go with this. Throwing speghetti sometimes works... for now
+	
 	function alertGifName() {
 		var gifTopic = $(this).attr("data-name");
 		// alert(gifName);
@@ -47,6 +49,31 @@
 			method: "GET"
 		}).done(function(response) {
 			console.log(response);
+
+			// Now that I can see the data in the console.log, I need to access specific parts of the data and show it onscreen
+			// After three tries, this appears to be the correct sequence.  Sweet Baby Jesus how did I get this to work?  More speghetti at the wall.
+			var results = response.data;
+
+			$("#result-gifs").empty(); // Deletes the gifs before adding new ones
+
+			for(var n = 0; n < results.length; n++ ) {
+				if (results[n].rating !== "r") {
+
+					var gifDiv = $("<div class='item'>");
+
+					var rating = results[n].rating;
+					var p = $("<p>").text("Rating: " + rating);
+
+					var gifImage = $("<img>");
+
+					gifImage.attr("src", results[n].images.fixed_height.url);
+
+					gifDiv.append(p);
+					gifDiv.prepend(gifImage);
+
+					$("#result-gifs").prepend(gifDiv);
+				}
+			}
 		});
 	};
 
