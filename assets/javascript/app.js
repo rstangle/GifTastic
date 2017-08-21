@@ -35,7 +35,7 @@
 	// THIRD OR FOURTH ATTEMPT VBUT FINALLY GOT SOMETHING TO SHOW UP
 		// I don't understand why this worked and the other ones below did not, but I'll go with this. Throwing speghetti sometimes works... for now
 	
-	function alertGifName() {
+	function gifs() {
 		var gifTopic = $(this).attr("data-name");
 		// alert(gifName);
 
@@ -83,24 +83,7 @@
 
 					$("#result-gifs").prepend(gifDiv);
 
-					// $("img").on("click", function() {
-					// // 	// alert("click test");  // Click is working.  Just need to set the animate attribute and still attribute.
-				 // //      // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
-				      
-				 //      var state = $(this).attr("data-state");
-				 //      // var still = $(this).attr("src", results[n].images.downsized_still.url);
-				 //      // var animate = $(this).attr("src", results[n].images.fixed_height.url);
-				 //      // If the clicked image's state is still, update its src attribute to what its data-animate value is.
-				 //      // Then, set the image's data-state to animate
-				 //      // Else set src to the data-still value
-				 //      if (state === "still") {
-				 //        $(this).attr("src", $(this).attr("data-animate"));
-				 //        $(this).attr("data-state", "animate");
-				 //      } else {
-				 //        	$(this).attr("src", $(this).attr("data-still"));
-				 //        	$(this).attr("data-state", "still");
-				 //      	}
-				 //    });
+
 				}
 			}  // Closes for loop
 			gifClick();
@@ -139,8 +122,10 @@
 	function gifClick () {
 		$("img").on("click", function() {
 			// alert("click test");  // Click is working.  Just need to set the animate attribute and still attribute.
+	      
 	      // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
 	      var state = $(this).attr("data-state");
+	      
 	      // If the clicked image's state is still, update its src attribute to what its data-animate value is.
 	      // Then, set the image's data-state to animate
 	      // Else set src to the data-still value
@@ -156,20 +141,29 @@
 
 //*************************************************************************************************************************************************
 //*************************************************************************************************************************************************
-	
+	// BUTTONS
 	// Adds a new category button from the search field
 	$("#add-category").on("click", function(event){
 		event.preventDefault();
 		var subject = $("#sci-fi-input").val().trim();
 		topics.push(subject);
 
+		// Calls the renderButton function
 		renderButtons();
 	});
 
 //************************************************************************************************************************************************
 //*************************************************************************************************************************************************
+$(document).on("click", ".category", gifs);
 
+renderButtons();
 
+//************************************************************************************************************************************************
+//************************************************************************************************************************************************
+
+//  CODE SECTIONS THAT DIDN'T WORK. DIDN'T WANT TO DELETE FOR REFERENCE OF WHAT NOT TO KEEP TRYING
+
+//************************************************************************************************************************************************
 //************************************************************************************************************************************************
 
 	// $(".category").on("click", function(){
@@ -209,6 +203,8 @@
 	// 	});
 	// });
 	
+//***************************************************************************************************************************************
+//***************************************************************************************************************************************
 
 	// function displayGif() {
 	// 	var gif = $(this).attr("data-name"); // Do I need to replace ".category" with "this"? 
@@ -231,8 +227,26 @@
 	// 			gifDiv.append(pRating);
 
 
-
-
+//***************************************************************************************************************************************
+//***************************************************************************************************************************************
+					// $("img").on("click", function() {
+					// // 	// alert("click test");  // Click is working.  Just need to set the animate attribute and still attribute.
+				 // //      // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
+				      
+				 //      var state = $(this).attr("data-state");
+				 //      // var still = $(this).attr("src", results[n].images.downsized_still.url);
+				 //      // var animate = $(this).attr("src", results[n].images.fixed_height.url);
+				 //      // If the clicked image's state is still, update its src attribute to what its data-animate value is.
+				 //      // Then, set the image's data-state to animate
+				 //      // Else set src to the data-still value
+				 //      if (state === "still") {
+				 //        $(this).attr("src", $(this).attr("data-animate"));
+				 //        $(this).attr("data-state", "animate");
+				 //      } else {
+				 //        	$(this).attr("src", $(this).attr("data-still"));
+				 //        	$(this).attr("data-state", "still");
+				 //      	}
+				 //    });
 
 
 
@@ -251,7 +265,7 @@
 	// }
 // Check to see if onclick is working with data-name with each button... so far it is.
 // Finally got this to pull the Giphy data and currently console.logging to view it.
-$(document).on("click", ".category", alertGifName);
+// $(document).on("click", ".category", gifs);
 
-renderButtons();
+// renderButtons();
 // displayGif();
