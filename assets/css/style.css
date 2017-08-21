@@ -24,7 +24,7 @@ body {
 }
 
 .page-header > h1 > small {
-	color: #acceda;
+	color: #ffb300;
 	font-family: 'Unica One', sans-serif;
 	text-shadow: none;
 }
@@ -36,16 +36,26 @@ button {
 	border: none;
 	font-size: 18px;
 	font-family: 'Unica One', sans-serif;
-	background-color: rgba(255, 255, 255, 0.6);
-	box-shadow: 1px 1px 8px gray;
+	background-color: rgba(255, 255, 255, 0.9);
+	box-shadow: 1px 1px 8px #37474f;
+	color: black;
+	text-decoration: none;
 	/*border: 1px solid gray;*/
+}
+
+button:visited {
+	text-decoration: none;
 }
 
 button:hover {
 	font-size: 150%;
-	background-color: #c8e6c9;
+/*	background-color: #c8e6c9;*/
 	font-family: 'Unica One', sans-serif;
-	color: #007E33;
+	color: #0091ea;
+}
+
+button:active {
+	text-decoration: none;
 }
 
 .panel-heading > h3 {
@@ -54,8 +64,10 @@ button:hover {
 }
 
 .panel {
-	background-color: rgba(255, 255, 255, 0.7);
+	background-color: rgba(0, 0, 0, 0.6);
 	box-shadow: 3px 3px 8px #333333;
+	border-color: black;
+	color: white;
 }
 
 label {
@@ -84,4 +96,35 @@ p {
 	box-shadow: none;
 	font-family: 'Unica One', sans-serif;
 	text-shadow: 0px 1px black;
+}
+
+.panel-success .panel-heading {
+	background-color: #1d4870;
+	background-image: none;
+	color: white;
+	border: none;
+}
+
+.panel-info .panel-heading {
+	background-color: #00838f;
+	background-image: none;
+	color: white;
+	border: none;
+}
+
+.panel-warning .panel-heading {
+	background-color: #ffb300;
+	background-image: none;
+	color: white;
+	border: none;
+}
+
+.item {
+	float: left;
+	margin: 2% 2%;
+}
+
+.item > img {
+	box-shadow: 3px 3px 8px black;
+	margin-bottom: 1%;
 }
