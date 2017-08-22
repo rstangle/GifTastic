@@ -30,7 +30,7 @@ body {
 }
 
 button {
-	margin: 10px;
+	margin: 8px;
 	padding: 10px 25px;
 	border-radius: 30px;
 	border: none;
@@ -48,7 +48,7 @@ button:visited {
 }
 
 button:hover {
-	font-size: 150%;
+	font-size: 135%;
 /*	background-color: #c8e6c9;*/
 	font-family: 'Unica One', sans-serif;
 	color: #0091ea;
