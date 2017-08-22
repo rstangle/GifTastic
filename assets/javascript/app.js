@@ -24,7 +24,7 @@
 //*** VARIABLES ************************************************************************************************************************************
 //**************************************************************************************************************************************************
 	
-	var topics = ["Battlestar Galactica", "The Incredibles", "The Fifth Element", "Star Trek", "Dr. Who", "Babylon 5", "Guardians of the Galaxy", "Farscape", "Stargate", "Tron Legacy"];
+	var topics = ["Battlestar Galactica", "The Incredibles", "The Fifth Element", "Babylon 5", "Star Trek", "Dr. Who", "Guardians of the Galaxy", "Farscape", "Tron Legacy"];
 
 
 //**************************************************************************************************************************************************
