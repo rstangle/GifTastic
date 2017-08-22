@@ -19,27 +19,25 @@
 
 	// ** If all goes well, praise the baby Jesus and have a beer.  Baby Jesus would have wanted that.
 
-//********************************************************************************************************************************
-//********************************************************************************************************************************
 
-// VARIABLES
+//**************************************************************************************************************************************************
+//*** VARIABLES ************************************************************************************************************************************
+//**************************************************************************************************************************************************
+	
 	var topics = ["Battlestar Galactica", "The Incredibles", "The Fifth Element", "Star Trek", "Dr. Who", "Babylon 5", "Guardians of the Galaxy", "Farscape", "Stargate", "Tron Legacy"];
 
 
 //**************************************************************************************************************************************************
+//*** FUNCTIONS ************************************************************************************************************************************
 //**************************************************************************************************************************************************
 
-// FUNCTIONS
-
 	// Check to see if onclick is working with data-name with each button... so far it is.
-	// THIRD OR FOURTH ATTEMPT VBUT FINALLY GOT SOMETHING TO SHOW UP
-		// I don't understand why this worked and the other ones below did not, but I'll go with this. Throwing speghetti sometimes works... for now
+	// THIRD OR FOURTH ATTEMPT BUT FINALLY GOT SOMETHING TO SHOW UP
+	// I don't understand why this worked and the other ones below did not, but I'll go with this. Throwing speghetti sometimes works... for now
 	
 	function gifs() {
 		var gifTopic = $(this).attr("data-name");
 		// alert(gifName);
-
-		// var state = $(this).attr("data-state");
 
 
 		// Assign the Giphy search URL to var queryURL with rating of g, limit of 10 gifs, my API key, with search of var gif, which is data-name attribute
@@ -64,10 +62,8 @@
 				if (results[n].rating !== "r") {
 
 					var gifDiv = $("<div class='item'>");
-
 					var rating = results[n].rating;
 					var p = $("<p>").text("Rating: " + rating);
-
 					var gifImage = $("<img>");
 
 					// gifImage.attr("src", results[n].images.fixed_height.url);  // this is the animate gif
@@ -76,20 +72,15 @@
 					gifImage.attr("data-still", results[n].images.fixed_height_still.url);
 					gifImage.attr("data-state", "still");
 
-
-
 					gifDiv.append(p);
 					gifDiv.prepend(gifImage);
 
 					$("#result-gifs").prepend(gifDiv);
-
-
 				}
 			}  // Closes for loop
-			gifClick();
+			gifClick();  // Calls the gifClick function
 		});
 	};
-
 
 
 //*************************************************************************************************************************************************
@@ -113,7 +104,6 @@
 			// console.log(a);
 		}
 	}
-
 
 //*************************************************************************************************************************************************
 //*************************************************************************************************************************************************
@@ -140,9 +130,27 @@
 	}
 
 //*************************************************************************************************************************************************
+//*** BUTTONS *************************************************************************************************************************************
 //*************************************************************************************************************************************************
-	// BUTTONS
-	// Adds a new category button from the search field
+
+	// Render buttons from the topics []
+	function renderButtons (){
+		$("#category-tag").empty(); // Deletes the buttons before adding new ones to not repeat buttons
+
+		for (var i = 0; i < topics.length; i++) {
+			var a = $("<button>"); // Creates a button
+			a.addClass("category"); // Add class of category to style with css later
+			a.attr("data-name", topics[i]); // Add data-attribute with value of the topic at current index of loop
+			a.text(topics[i]); // Button label
+			$("#category-tag").append(a);
+
+		}
+	}
+
+	//************************************************************************************************************************************************
+	//*** Adds a new category button from the search field *******************************************************************************************
+	//************************************************************************************************************************************************
+	
 	$("#add-category").on("click", function(event){
 		event.preventDefault();
 		var subject = $("#sci-fi-input").val().trim();
@@ -153,7 +161,9 @@
 	});
 
 //************************************************************************************************************************************************
-//*************************************************************************************************************************************************
+//*** CALLS **************************************************************************************************************************************
+//************************************************************************************************************************************************
+
 $(document).on("click", ".category", gifs);
 
 renderButtons();
@@ -161,7 +171,7 @@ renderButtons();
 //************************************************************************************************************************************************
 //************************************************************************************************************************************************
 
-//  CODE SECTIONS THAT DIDN'T WORK. DIDN'T WANT TO DELETE FOR REFERENCE OF WHAT NOT TO KEEP TRYING
+//*** CODE SECTIONS THAT DIDN'T WORK. DIDN'T WANT TO DELETE FOR REFERENCE OF WHAT NOT TO KEEP TRYING *********************************************
 
 //************************************************************************************************************************************************
 //************************************************************************************************************************************************
