@@ -1,7 +1,7 @@
 # Sci-Fi GifTastic
 
 #### Copyright 2017 Ryan Stangle
-#### https://rstangle.github.io/Marvel-Puzzle-Challenge/
+#### https://rstangle.github.io/Sci-Fi-GifTastic/
 
 
 -----------------------------------------
